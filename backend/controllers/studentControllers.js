@@ -9,3 +9,37 @@ const createStudentController = async ({name, lastName, email, age})=>{
         throw new Error(err.message)
     }
 }
+
+//Obtener a  todos los estudiantes.
+const getAllStudents = async ()=>{
+    try {
+        const students = await Student.findAll()
+        return students
+    } catch (err) {
+        throw new Error(err.message)
+    }
+}
+
+//Obtener a un estudiante por su ID
+const getStudentById = async(id) =>{
+    try{
+        const student = await Student.findByPk(id)
+        return student
+    }catch(err){
+        throw new Error(err.message)
+    }
+}
+
+//Eliminar un estudiante por su ID
+const deleteStudentById = async(id) =>{
+    try{
+        const student = await Student.findByPk(id)
+        if(!student) return null
+        await student.destroy()
+        return true
+    }catch(err){
+        throw new Error(err.message)
+    }
+}
+
+//Actualizar un estudiante
