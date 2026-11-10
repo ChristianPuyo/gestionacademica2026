@@ -1,4 +1,5 @@
 const {DataTypes} = require('sequelize')
+const sequelize = require('../db')
 
 const Student = sequelize.define('Student',{
     id:{

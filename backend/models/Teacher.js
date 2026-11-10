@@ -21,3 +21,5 @@ const Teacher = sequelize.define('Teacher',{
         unique: true
     }
 })
+
+module.exports = Teacher
